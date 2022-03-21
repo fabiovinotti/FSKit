@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 /// A type that represents a file system resource.
 public protocol FileSystemItem {
@@ -53,6 +54,17 @@ public extension FileSystemItem {
     var parentDirectoryURL: URL {
         let resourceValues = try? url.resourceValues(forKeys: [.parentDirectoryURLKey])
         return resourceValues?.parentDirectory ?? url.deletingLastPathComponent()
+    }
+    
+    var creationDate: Date? {
+        let resourceValues = try? url.resourceValues(forKeys: [.creationDateKey])
+        return resourceValues?.creationDate
+    }
+    
+    @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+    var contentType: UTType? {
+        let resourceValues = try? url.resourceValues(forKeys: [.contentTypeKey])
+        return resourceValues?.contentType
     }
     
     // MARK: - Copying Items
