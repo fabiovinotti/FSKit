@@ -59,4 +59,5 @@ fileprivate class DummyFileSystemItem: FileSystemItem {
     }
     
     func move(to destinationURL: URL) throws {}
+    func move(to destinationPath: String) throws {}
 }

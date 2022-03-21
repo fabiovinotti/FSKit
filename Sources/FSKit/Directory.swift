@@ -108,11 +108,15 @@ public class Directory: FileSystemItem {
     // MARK: - Moving
     
     public func move(to destinationURL: URL) throws {
+        try move(to: destinationURL.path)
+    }
+    
+    public func move(to destinationPath: String) throws {
         do {
-            try FileManager.default.moveItem(at: url, to: destinationURL)
-            url = destinationURL
+            try FileManager.default.moveItem(atPath: path, toPath: destinationPath)
+            url = URL(fileURLWithPath: destinationPath)
         } catch {
-            throw FSError.moveFailed(toPath: destinationURL.path, error: error)
+            throw FSError.moveFailed(toPath: destinationPath, error: error)
         }
     }
     

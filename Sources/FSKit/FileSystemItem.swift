@@ -34,6 +34,9 @@ public protocol FileSystemItem {
     init(at filePath: String) throws
     init(at fileURL: URL) throws
     
+    /// Synchronously moves the item to the specified path.
+    func move(to destinationPath: String) throws
+    
     /// Synchronously moves the item to the specified URL.
     func move(to destinationURL: URL) throws
 }
