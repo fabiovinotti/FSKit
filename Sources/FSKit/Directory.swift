@@ -107,10 +107,16 @@ public class Directory: FileSystemItem {
     
     // MARK: - Moving
     
+    /// Synchronously moves the item to the specified URL.
+    ///
+    /// This method moves the directory and all of its contents, including any hidden files.
     public func move(to destinationURL: URL) throws {
         try move(to: destinationURL.path)
     }
     
+    /// Synchronously moves the item to the specified path.
+    ///
+    /// This method moves the directory and all of its contents, including any hidden files.
     public func move(to destinationPath: String) throws {
         do {
             try FileManager.default.moveItem(atPath: path, toPath: destinationPath)
