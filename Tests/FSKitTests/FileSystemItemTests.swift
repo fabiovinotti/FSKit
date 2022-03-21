@@ -32,8 +32,13 @@ class FileSystemItemTests: XCTestCase {
         XCTAssertEqual(testItem.path, testItemURL.path)
     }
     
-    func testParentDirectory() {
-        XCTAssertEqual(testItem.parentDirectory, testItemURL.deletingLastPathComponent())
+    func testParentDirectoryURL() throws {
+        let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
+        let dir = try Directory.create(at: tempDirURL.appendingPathComponent("new-dir"))
+        XCTAssertEqual(dir.parentDirectoryURL, tempDirURL)
+        
+        let file = try File.create(at: dir.url.appendingPathComponent("new-file"))
+        XCTAssertEqual(file.parentDirectoryURL, dir.url)
     }
 }
 

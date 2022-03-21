@@ -163,7 +163,7 @@ public class Directory: FileSystemItem {
     
     /// Whether the specified file system item is in this directory.
     public func containsItem(_ item: FileSystemItem) -> Bool {
-        url == item.parentDirectory
+        url == item.parentDirectoryURL
     }
     
     /// Whether a file or directory with the specified name exists in this directory.

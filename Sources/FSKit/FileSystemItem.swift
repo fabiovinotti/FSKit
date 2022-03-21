@@ -50,8 +50,9 @@ public extension FileSystemItem {
         url.path
     }
     
-    var parentDirectory: URL {
-        url.deletingLastPathComponent()
+    var parentDirectoryURL: URL {
+        let resourceValues = try? url.resourceValues(forKeys: [.parentDirectoryURLKey])
+        return resourceValues?.parentDirectory ?? url.deletingLastPathComponent()
     }
     
     // MARK: - Copying Items
