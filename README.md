@@ -15,4 +15,4 @@ BasicAudioPlayer is a Swift package. To add it to your Xcode project:
 
 ## License
 
-AudioElements is available under the MIT license. See the LICENSE file for more info.
+FSKit is available under the MIT license. See the LICENSE file for more info.
