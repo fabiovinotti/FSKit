@@ -102,7 +102,7 @@ try directory.move(to: "/Move/Path/Dir")
 
 ### Handling Errors
 
-All errors thrown in FSKit are of type <code>FSError</code> and have a <code> localizedDescription </code> describing what went wrong.
+All errors thrown in FSKit are of type <code>FSError</code> and have a property <code>localizedDescription</code> describing what went wrong.
 
 ## License
 
